@@ -1,9 +1,9 @@
-import Heading from "./Heading"
+import Navbar from "./Navbar"
 
 export default function Header() {
   return (
     <header>
-      <Heading teg="h3" text="Header" />
+      <Navbar />
     </header>
   )
 }
