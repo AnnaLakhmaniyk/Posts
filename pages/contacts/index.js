@@ -1,9 +1,9 @@
 import Heading from "@/components/Heading"
 
-export default function Home() {
+export default function Contacts() {
   return (
     <div>
-      <Heading text="hellow world!" />
+      <Heading text="Contacts" />
     </div>
   )
 }
