@@ -17,7 +17,7 @@ export default function Error() {
   return (
     <div className={s.wrapper}>
       <Head>
-        <title>Error</title>
+        <title>Er</title>
       </Head>
       <div>
         <Heading text="404" />
