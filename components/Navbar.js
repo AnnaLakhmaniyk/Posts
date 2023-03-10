@@ -3,15 +3,27 @@ import { useRouter } from "next/router"
 import Image from "next/image"
 import s from "../styles/Navbar.module.css"
 
-const navigation = [
-  { id: 1, title: "Home", path: "/" },
-  { id: 2, title: "Posts", path: "/posts" },
-  { id: 3, title: "Contacts", path: "/contacts" },
-  { id: 4, title: "Auth", path: "/auth" },
-]
+import { signOut, useSession } from "next-auth/react"
 
 export default function Navbar() {
   const { pathname } = useRouter()
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
+
+  console.log("session", session)
+
+  const navigation = session
+    ? [
+        { id: 1, title: "Home", path: "/" },
+        { id: 2, title: "Posts", path: "/posts" },
+        { id: 3, title: "Contacts", path: "/contacts" },
+      ]
+    : [{ id: 4, title: "Auth", path: "/auth" }]
+
+  function logoutHendler() {
+    signOut()
+  }
+
   return (
     <nav className={s.nav}>
       <Image src="/logo.png" width={60} height={60} alt="webDev" />
@@ -22,6 +34,7 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
+      {session && <button onClick={logoutHendler}>LOGOUT</button>}
     </nav>
   )
 }
