@@ -17,8 +17,9 @@ export default function Navbar() {
         { id: 1, title: "Home", path: "/" },
         { id: 2, title: "Posts", path: "/posts" },
         { id: 3, title: "Contacts", path: "/contacts" },
+        { id: 4, title: "Profole", path: "/profile" },
       ]
-    : [{ id: 4, title: "Auth", path: "/auth" }]
+    : [{ id: 5, title: "Auth", path: "/auth" }]
 
   function logoutHendler() {
     signOut()
